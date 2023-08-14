@@ -152,8 +152,10 @@ class DbtToAirflowConverter:
             **operator_args,
             # the following args may be only needed for local / venv:
             "project_dir": dbt_project.dir,
-            "profile_config": profile_config,
         }
+
+        if execution_mode in ([execution_mode.LOCAL, execution_mode.VIRTUALENV]):
+            task_args["profile_config"] = profile_config
 
         if dbt_executable_path:
             task_args["dbt_executable_path"] = dbt_executable_path
