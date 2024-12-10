@@ -168,6 +168,34 @@ except ImportError:
 
 
 try:
+    from cosmos.operators.aws_ecs import (
+        DbtBuildAwsEcsOperator,
+        DbtLSAwsEcsOperator,
+        DbtRunAwsEcsOperator,
+        DbtRunOperationAwsEcsOperator,
+        DbtSeedAwsEcsOperator,
+        DbtSnapshotAwsEcsOperator,
+        DbtTestAwsEcsOperator,
+    )
+except ImportError:
+    DbtBuildAwsEcsOperator = MissingPackage(
+        "cosmos.operators.aws_ecs.DbtBuildAwsEcsOperator", "aws_eks"
+    )
+    DbtLSAwsEcsOperator = MissingPackage("cosmos.operators.aws_ecs.DbtLSAwsEcsOperator", "aws_eks")
+    DbtRunAwsEcsOperator = MissingPackage("cosmos.operators.aws_ecs.DbtRunAwsEcsOperator", "aws_eks")
+    DbtRunOperationAwsEcsOperator = MissingPackage(
+        "cosmos.operators.aws_ecs.DbtRunOperationAwsEcsOperator",
+        "aws_eks",
+    )
+    DbtSeedAwsEcsOperator = MissingPackage("cosmos.operators.aws_ecs.DbtSeedAwsEcsOperator", "aws_eks")
+    DbtSnapshotAwsEcsOperator = MissingPackage(
+        "cosmos.operators.aws_ecs.DbtSnapshotAwsEcsOperator",
+        "aws_eks",
+    )
+    DbtTestAwsEcsOperator = MissingPackage("cosmos.operators.aws_ecs.DbtTestAwsEcsOperator", "aws_eks")
+
+
+try:
     from cosmos.operators.gcp_cloud_run_job import (
         DbtBuildGcpCloudRunJobOperator,
         DbtLSGcpCloudRunJobOperator,
@@ -256,6 +284,14 @@ __all__ = [
     "DbtSeedAwsEksOperator",
     "DbtSnapshotAwsEksOperator",
     "DbtTestAwsEksOperator",
+    # AWS ECS Task Run Execution Mode
+    "DbtBuildAwsEcsOperator",
+    "DbtLSAwsEcsOperator",
+    "DbtRunAwsEcsOperator",
+    "DbtRunOperationAwsEcsOperator",
+    "DbtSeedAwsEcsOperator",
+    "DbtSnapshotAwsEcsOperator",
+    "DbtTestAwsEcsOperator",
     # GCP Cloud Run Job Execution Mode
     "DbtBuildGcpCloudRunJobOperator",
     "DbtLSGcpCloudRunJobOperator",
